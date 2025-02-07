@@ -53,4 +53,8 @@ console.log(assignmentDescripsion, value);
 
 
 
+// data typer
+// number, String, boolean, bigInt, object, null, undefined
 
+// måder at deklarere på
+// const, let, var.
