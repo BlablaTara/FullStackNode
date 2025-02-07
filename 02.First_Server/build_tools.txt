@@ -1,0 +1,9 @@
+Examples: maven, gradle, make, nuget
+
+
+Java                Node.js
+----                --------
+
+maven               npm, pnpm, yarn
+
+pom.xml             packet.json
