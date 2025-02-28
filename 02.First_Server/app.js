@@ -22,6 +22,13 @@ app.get("/welcomepage", (req, res) => {
 })
 
 
+// path values
+app.get("/redirecttofavoritethings", (req, res ) => {
+    res.redirect("/favoritthings/tulips/sea lions");
+});
+
+
+
 
 
 /// vi vil geren lave sådan så der i browseren kommer at query-parameteren er q.

@@ -1,8 +1,17 @@
 
-const express = require("express")
+//const express = require("express")
+import express from 'express';
+
+import path, { resolve } from 'path';
+
+import partiesLibraryESModules from './util/partiesLibraryES.js';
+
+console.log(path.resolve);
+
+
 const app = express()
 
-const { parties } = require('./util/partiesLibrary.js')
+//const { parties } = require('./util/partiesLibrary.js')
 //console.log(parties);
 
 //const { partyName, supplies } = require('./partyFactory.js')
@@ -15,11 +24,11 @@ let visitorCount = 0;
 
 app.get("/", (req, res) => {
     console.log("Welcome .. in terminal");
-    res.sendFile(__dirname + "/public/frontpage/frontpage.html");
+    res.sendFile(path.resolve("public/frontpage/frontpage.html"));
 });
 
 app.get("/partypage", (req, res) =>{
-    res.sendFile(__dirname + "/public/partypage/partyPage.html");
+    res.sendFile(path.resolve("public/partypage/partyPage.html"));
 });
 
 

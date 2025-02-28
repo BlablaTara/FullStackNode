@@ -3,6 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+   <!--  <meta http-equiv="refresh" content="3;/partypage" />-->
    
         <!-- 3. External, frontpage css.-->
         <link rel="stylessheet" href="/frontpage/frontpage.css" >
@@ -23,6 +25,9 @@
 <body>
     <H1 class ="headers" id="frontpage-header">Frontpage</H1>
 
+    <!-- anchor tag-->
+    <a href="/partypage"> Tryk her for at komme til partypage </a>
+
     <!-- 1. inline-css-->
     <h2 class ="headers" style="color: green"> Welcome users!</h2>
 
@@ -33,9 +38,26 @@
 
 
 
+
+
     <script src="/frontpage.js"></script>
 
+    function goParty () {
+
+    }
+
+
     <script>
+
+        // set en timer - 
+        setTimeout(() => {
+            //Laver en ny entry i stacken.
+            window.location.href = "/partypage"
+
+            // replace, OVERSKRIVER ens gamle side, man kommer fra,
+            //window.location.replace = "/partypage"
+        }, 3000);
+
 
             // fetc og then er en promise, og det smame som async og await.
         fetch("/visitorscounts")

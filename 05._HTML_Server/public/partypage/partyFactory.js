@@ -5,6 +5,9 @@ function partyFactory(partyName) {
         supplies: ["🥳", "🍾", "🥂", "🎈", "🎉", "🎊", "🎓"]
     };
 
-    console.log(partyFactory);
     
 } 
+
+
+export default partyFactory;
+
