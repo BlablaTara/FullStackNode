@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   
+        <!-- 3. External, frontpage css.-->
+        <link rel="stylessheet" href="/frontpage/frontpage.css" >
+        <!-- virker ikke pt.-->
+
+       <!-- 2. CSS in style tag-->
+   <style>
+        #frontpage-header {
+            color: red;
+        }
+
+        .headers {
+            background-color: grey;
+        }
+    </style>
+    <title>Frontpage</title>
+</head>
+<body>
+    <H1 class ="headers" id="frontpage-header">Frontpage</H1>
+
+    <!-- 1. inline-css-->
+    <h2 class ="headers" style="color: green"> Welcome users!</h2>
+
+
+
+    <div id="visitorsCount"></div>
+
+
+
+
+    <script src="/frontpage.js"></script>
+
+    <script>
+
+            // fetc og then er en promise, og det smame som async og await.
+        fetch("/visitorscounts")
+        .then((response) => response.json())
+        .then ((result) => {
+            const visitorcountDiv = document.getElementById("visitorsCount");
+            visitorcountDiv.textContent = result.data;
+            
+            console.log(result);
+   
+    });
+    
+
+        
+    </script>
+    
+</body>
+</html>
