@@ -6,8 +6,6 @@ import path, { resolve } from 'path';
 
 import partiesLibraryESModules from './util/partiesLibraryES.js';
 
-console.log(path.resolve);
-
 
 const app = express()
 
