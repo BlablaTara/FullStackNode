@@ -106,6 +106,21 @@ app.post("/ping", (req, res) => {
 
 
 
+//create a /proxy endpoint that calls the google homepage and returns the page to the client
+app.get("/proxy", (req, res) => {
+
+    fetch("https://www.google.com")
+    //lav om til json
+    .then((response) => response.text())
+    .then(result => res.send(result));
+});
+
+
+/*app.get("/proxy", async (req, res) => {
+
+    const response = await fetch("https://www.google.com");
+    const body = await response.text();
+})*/
 
 
 
