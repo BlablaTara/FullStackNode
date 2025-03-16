@@ -1,3 +1,5 @@
+//lokalt bibliotek
+import { fakerEN_IN } from '@faker-js/faker';
 
 //forloop er ikke async/await. Så løsningen 
 //derfor laver vi et array af promises. - hver kald er et promis
@@ -12,11 +14,24 @@ export async function getMatches(numberOfMathces = 2) {
     }
     //promis.all sørger for atalle promises bliver fulfilled. 
     const results = await Promise.all(promises);
-    const matches = results.map((result) => ({ image: result.message }))
+    const matches = results.map((result) => ({ image: result.message, ...getIndianProfile() }))
     return matches;
 
 }
 ///uden await, så giver den i stedet et ny promise
-console.log(await getMatches());
+//console.log(fakerEN_IN_IN.person.bio);
+
+function getIndianProfile() {
+    return {
+        name: fakerEN_IN.person.fullName(),
+        bio: fakerEN_IN.person.bio(),
+        streetAdress: fakerEN_IN.location.streetAddress(),
+        city: fakerEN_IN.location.city()
+    };
+}
+
+//ingen async da det er et bibliotek, som giver med det samme. 
+
+console.log
 
 
