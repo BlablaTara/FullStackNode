@@ -1,9 +1,9 @@
-"use strict";
+//"use strict";
 
 // virker, men er ikke god. kan bruges også i varibles_I. (UDEN STRICT)
 totalGlobalVariable = "Never EVER!! do this";
 
-// var globalVariable = "Also never do this!";
+var globalVariable = "Also never do this!";
 
 // Global scope. 
 

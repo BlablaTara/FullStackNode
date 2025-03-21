@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Contact</h1>
+
+    <form action="/api/contact" method="POST"> 
+        <fieldset >
+            <legend>Contact</legend>
+            <label for="name">
+                Name:
+            </label>
+
+            <input id="name" type="text" name="name" required placeholder="Your name..." value="test name">
+
+
+            <label for="email">
+                Email:
+            </label>
+            <input id="email" type="email" name="email" required placeholder="Your email..." value="test@email.dk">
+
+
+            <textarea name="message" cols="80" rows="10"></textarea>
+
+
+            <button aria-label="Submit Form">Send Message</button>
+        </fieldset>
+    </form>
+
+</body>
+</html>

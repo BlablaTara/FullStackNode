@@ -44,25 +44,24 @@ const getRandomIntArrowFaunction = (min, max) => {
 
 //CALLBACK FUNKTION
 //action er en CallBack funktion. 
-// is af funtion som bliver givet til en anden parameter i en anden funktoon. 
-//Måske den bliver brug senere, måske ikke.det er ikke nødvendigt.
+//Det er en funtion som bliver givet til en anden parameter i en anden funktoon. 
+//Måske den bliver brugt senere, måske ikke. Det er ikke nødvendigt.
 
 //Som et slags interface. Sørger for at overholde en kontrakt, for alle som bruger denne.
-                            //name: sting, action: function
+                            //name: string, action: function
 function genericPerformer (name, action) {
     return action(name);
 
 }
 
-// Lasse coding
+
 const codingAction = (name) => `${name} likes coding.`;
 
-// pågave: burg the generic performer, I would like tosay:
-// Opgave: Lasse likes coding.. writeit below.
-
-
 console.log(genericPerformer("Lasse", codingAction));
-// ingen paranteser på codingAction() så man sender en fintions reference, og ikke selve funktionen. 
+
+
+
+// ingen paranteser på codingAction() så man sender en funktions reference, og ikke selve funktionen. 
 
 
 console.log(getRandomInt); // en funktionsreference. Der er ikke nogen body erller noget 

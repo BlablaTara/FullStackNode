@@ -13,4 +13,10 @@ export const matchesPage = constructPage(matches,
     
 );
 
+const contactPage = readPage ('./public/pages/contactPage/contactPage.html');
+export const contactPagePage = constructPage(contactPage);
+
+const contactApiPage = readPage ('./public/pages/contactPage/contactApiPage.html')
+export const contactApiPagePage = constructPage(contactApiPage);
+
 

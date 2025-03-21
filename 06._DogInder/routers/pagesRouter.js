@@ -4,7 +4,7 @@ import { Router} from 'express';
 
 const router = Router();
 
-import { frontpagePage, matchesPage } from '../util/pages.js';
+import { frontpagePage, matchesPage, contactPagePage } from '../util/pages.js';
 
 import { getMatches } from '../util/matches.js';
 
@@ -16,5 +16,10 @@ router.get("/", (req, res) => {
 router.get("/matches", (req, res) => { 
     res.send(matchesPage);
 });
+
+router.get("/contact", (req, res) => {
+    res.send(contactPagePage)
+});
+
 
 export default router;
