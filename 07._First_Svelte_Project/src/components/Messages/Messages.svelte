@@ -1,4 +1,6 @@
 <script>
+  import FirstMessages from "./FirstMessages.svelte";
+
     let messages = $state([1, 2, "jrger", 3]);
 
     let messageInput = $state ("");
@@ -25,3 +27,5 @@
 
 
 <button onclick={addMessage}>Submit message</button>
+
+<FirstMessages firstMessage="test message"></FirstMessages>
