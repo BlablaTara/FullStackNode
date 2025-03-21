@@ -4,13 +4,8 @@
   import Messages from "./components/Messages/Messages.svelte";
 
 </script>
-<h1>Welcome</h1>
 
+<Home />
 <Counter />
 <Messages />
 
-<style>
-  h1 {
-    color: red;
-  }
-</style>
