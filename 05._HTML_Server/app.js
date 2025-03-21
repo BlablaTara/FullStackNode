@@ -38,6 +38,10 @@ app.get("/visitorcounts", (req, res) => {
     res.send({ data: ++visitorCount });
 });
 
+app.get("/dangerouspage", (req, res) => {
+    res.sendFile(path.resolve("public/dangerouspage/dangerouspage.html"));
+});
+
 
 
 const PORT = 8080;
