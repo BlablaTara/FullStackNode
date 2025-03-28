@@ -1,5 +1,17 @@
-<h1>Home</h1>
 
+<script>
+    import { fridgeMessages } from "../../stores/fridgeMessagesStore.js";
+
+</script>
+
+
+{#each $fridgeMessages as fridgeMessage }
+    <p>{fridgeMessages.creator || ""} {fridgeMessage.message}</p>
+    
+{/each}
+
+
+<slot></slot>
 <h3 id="welcome-mat">Home sweet home</h3>
 
 <style>
