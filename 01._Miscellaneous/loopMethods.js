@@ -67,4 +67,3 @@ const updatedReaction = listOfReactions.map((reaction) => "thumbs up");
 console.log(updatedReaction);
 
 
-
