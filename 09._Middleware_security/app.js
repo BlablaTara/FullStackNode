@@ -41,9 +41,10 @@ app.use("/auth", authLimiter);
 
 import session from 'express-session';
 
+
 app.use(session({
     // Denne secret skal vi ikke have - den exposer vi.
-    secret: 'keyboard cat',
+    secret: 'process.env.SESSION_SECRET',
     resave: false,
     saveUninitialized: false,
     cookie: { secure: false }
@@ -69,6 +70,17 @@ app.get("/{*splat}", (req, res) => {
 app.all("/{*splat}", (req, res) => {
     res.status(404).send({message: `${req.path} for ${req.method} not found`});
 });
+
+
+
+// import dotenv from 'dotevn';
+// dotenv.config();
+
+//kalder automatisk funktionen og sætter den op
+import dotenv from 'dotenv/config';
+
+console.log(process.env.SESSION_SECRET);
+
 
 // Det kan drille med middlewaren. SKAL være i bunden.
 const PORT = 8080;
