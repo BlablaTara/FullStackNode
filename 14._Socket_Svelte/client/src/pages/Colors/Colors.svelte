@@ -7,7 +7,7 @@
 
     import { colorsList } from "../../stores/colorsListStore.js";
 
-    import ColorsList from '../../components/ColorsList.svelte';
+    import ColorsList from "../../components/ColorsList/ColorsList.svelte";
 
 
     let socket;
@@ -23,7 +23,7 @@
             // dette gør man ikke normalt i et webframework
             document.body.style.backgroundColor = data.color;
 
-            const nickname = "Miss Terror";
+            //const nickname = "Miss Terror";
 
             colorsList.update((colorsListArray) => {
                 colorsListArray.push({ color: data.color, nickname: data.nickname })

@@ -2,14 +2,22 @@ import "dotenv/config";
 
 import express from 'express';
 
-//hvis vi siger app.listen med port, så er dt kun denne server instance den starter.
+//hvis vi siger app.listen med port, så er det kun denne server instance den starter.
 //virker men ingeen sucket.
 const app = express();
 
 //server static
-app.use(express.static('public'));
+app.use(express.static("public"));
 
-app.use(express.json);
+app.use(express.json());
+
+import cors from 'cors';
+app.use(cors({
+    origin: "http://localhost:5173",
+    credentials: true
+}));
+
+import session from "express-session";
 
 const sessionMiddleware = session({
     secret: process.env.SESSION_SECRET,
@@ -20,22 +28,17 @@ const sessionMiddleware = session({
 
 app.use(sessionMiddleware);
 
+// app.use(session({
+//   secret: process.env.SESSION_SECRET,
+//   resave: false,
+//   saveUninitialized: true,
+//   cookie: { secure: false }
+// }));
 
 
-import cors from 'cors';
-app.use(cors({
-    origin: "http://localhost:5173",
-    credentials: true
-}));
+import nicknamesRouter from './router/nicknamesRouter.js';
+app.use(nicknamesRouter);
 
-import session from "express-session";
-
-app.use(session({
-  secret: process.env.SESSION_SECRET,
-  resave: false,
-  saveUninitialized: true,
-  cookie: { secure: false }
-}));
 
 import http from 'http';
 
@@ -44,7 +47,7 @@ const server = http.createServer(app);
 import { Server } from 'socket.io';
 
 
-//her releterer dt til session middlevaren i ens io instanse.
+//her releterer det til session middlevaren i ens io instanse.
 const io = new Server(server, {
     cors: {
         origin: "http://localhost:8080",
@@ -62,14 +65,22 @@ io.on("connection", (socket)  => {
 
     socket.on("client-sends-color", (data) => {
 
-
-        console.log(socket.request.session.nickname);
+        data.nickname = socket.request.session.nickname;
+        socket.request.session.timesSubmitted = (socket.request.session.timesSubmitted + 1 || 1);
+        data.timesSubmitted = socket.request.session.timesSubmitted;
+        console.log(data);
         
-        //sender til alle
+        //console.log(socket.request.session.nickname);
+        
+        //sender til alle i io namespace.
         io.emit("server-sends-color", data);
 
         //sender til alle undtagen ens eget
        //socket.broadcast.emit("server-sends-color", data); 
+
+       // sender til sin egen socket
+       //socket.emit("Server-sends-color", data);
+
 
         //console.log("a client sent the color", data);
     

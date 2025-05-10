@@ -2,5 +2,5 @@ import { writable } from "svelte/store";
 
 
 
-export const nickname = writable([]);
+export const nickname = writable(undefined);
 
