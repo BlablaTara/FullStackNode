@@ -2,13 +2,13 @@ import { Router } from 'express';
 
 const router = Router();
 
-router.get("/api/nicknamea", (req, res) => {
+router.get("/api/nickname", (req, res) => {
     res.send({ data: req.session.nickname });
 
 
 });
 
-router.post("/api/nicknamea", (req, res) => {
+router.post("/api/nickname", (req, res) => {
 
     req.session.nickname = req.body.nickname;
 
